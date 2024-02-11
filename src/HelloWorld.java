@@ -1,6 +1,21 @@
 // Ce qui est écrit avec public class doit obligatoirement correspondre au nom du fichier/dossier
 public class HelloWorld {
     public static void main(String... args) {
+
+        /* On instancie (crée un nouvel objet) avec le mot clé new suivi de la classe à instancier => Voiture
+            L'objet nouvellement créé sera affecté à une variable.
+            Ici, le type sera Voiture, mais contrairement à une variable classique, Voiture va contenir la référence à cet objet.
+        */
+        Voiture voitureDeMichel = new Voiture();
+        // La référence sera donc stockée dans la variable "voitureDeMichel"
+        // On peut modifier les propriétés de la voiture :
+        voitureDeMichel.nbPortes =3;
+        voitureDeMichel.automatique = true;
+        voitureDeMichel.couleur = "Bleue";
+        System.out.println(voitureDeMichel.couleur);
+
+
+
         System.out.println("Hello World!");
 
         /* Types de variables dits primitifs => commencent par une minuscule :
@@ -102,6 +117,6 @@ public class HelloWorld {
             jeContinue = false;
         } while (jeContinue);
 
-        
+
     }
 }
