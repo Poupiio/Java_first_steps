@@ -14,6 +14,9 @@ public class HelloWorld {
         voitureDeMichel.couleur = "Bleue";
         System.out.println(voitureDeMichel.couleur);
 
+        // Jouer la méthode créée dans Voiture
+        voitureDeMichel.klaxonner();
+
 
 
         System.out.println("Hello World!");
