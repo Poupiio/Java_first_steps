@@ -30,5 +30,33 @@ public class HelloCar {
         System.out.println("Le nouveau rapport est : " + nouveauRapport);
 
         voitureDeMichel.tourner("gauche", 45);
+
+
+        // Je crée un nouvel objet de type Voiture
+        Voiture voitureDeJerome = new Voiture();
+
+        // Je veux comparer voitureDeMichel et voitureDeJerome avec l'opérateur ==
+        boolean egauxOuNon = voitureDeMichel == voitureDeJerome;
+        System.out.println(egauxOuNon);
+
+        String chaine1 = "Le ciel est bleu";
+        String chaine2 = "Le ciel est bleu";
+        boolean egauxOuPas = chaine1 == chaine2;
+        System.out.println(egauxOuPas);     // Retourne true
+
+        // Si j'instancie un nouvel objet pour chaque string, MÊME SI le contenu est identique, cela me retournera false
+        String chaine3 = new String("Le ciel est bleu");
+        String chaine4 = new String("Le ciel est bleu");
+        boolean egauxOrNot = chaine3 == chaine4;
+        System.out.println(egauxOrNot);     // Retourne false
+
+        // Pour comparer le contenu de 2 string (qui sont de type Objet), on utilise la méthode "equals()"
+        String chaine5 = new String("Le ciel est bleu");
+        String chaine6 = new String("Le ciel est bleu");
+        boolean egauxAlorsOuPas = chaine5.equals(chaine6);
+        System.out.println(egauxAlorsOuPas);    // Retourne true
+
+        int nouvelleVitesseDeJerome = voitureDeJerome.accelerer(150);
+        System.out.println("La nouvelle vitesse de Jérôme est " + nouvelleVitesseDeJerome + "km/h");
     }
 }
