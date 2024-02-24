@@ -1,16 +1,71 @@
 public class Voiture {
+    /* Convention d'écriture :
+    * - d'abord les propriétés statiques
+    * - puis les attributs d'instance
+    * - ensuite les constructeurs (ordonnées par leur nombre de paramètres)
+    * - enfin, les méthodes (d'abord les statiques, puis les méthodes d'instance)
+    * */
+    /* Propriété statique :
+     Un attribut statique est une propriété dont la valeur est définie par la Classe
+        => variable de Classe (le contenu est commun à toutes les instances)
+    */
+    static int nbRoues = 4;
+
     int nbPortes = 5;
     boolean automatique;
     String couleur;
     int rapportCourant;
     int vitesse;
-
     // Ajout d'une nouvelle propriété de type Objet
     Moteur moteur;
 
+    // Constructeur sans paramètre
+    Voiture() {
+        System.out.println("Une voiture est construite sans paramètre");
+        // Cela va s'afficher à chaque fois que l'objet Voiture sera utilisé dans HelloCar.java
+    }
+
+    // Constructeur avec paramètre => fait disparaître le constructeur par défaut, sans paramètre
+    Voiture(String couleur) {
+        this.couleur = couleur;
+        System.out.println("Une voiture est construite avec la couleur");
+        // Rappel : "this.couleur" identifie la couleur de l'objet courant, et "couleur" identifie le paramètre couleur
+    }
+
+    Voiture(int nbPortes) {
+        this.nbPortes = nbPortes;
+        System.out.println("Une voiture est construite avec le nombre de portes");
+        // Rappel : "this.couleur" identifie la couleur de l'objet courant, et "couleur" identifie le paramètre couleur
+    }
+    // ATTENTION : on ne peut pas créer 2 constructeurs différents avec le MÊME type de paramètre
+
+    // Constructeur avec plusieurs paramètres
+    /* Voiture(String couleur, int nbPortes) {
+        this.couleur = couleur;
+        this.nbPortes = nbPortes;
+        System.out.println("Une voiture est construite avec la couleur et le nombre de portes");
+        // Rappel : "this.couleur" identifie la couleur de l'objet courant, et "couleur" identifie le paramètre couleur
+    } */
+
+    // Constructeur avec en paramètre un type complexe (comme une classe)
+    Voiture(Moteur moteur) {
+        this.moteur = moteur;
+        System.out.println("Une voiture est construite avec le moteur");
+    }
+
+    // Construire une voiture qui reçoit en paramètres les constituants du moteur
+    Voiture(String carburation, int nbCylindres) {
+        // On profite de la création d'une voiture pour instancier son moteur
+        Moteur moteur = new Moteur();
+        moteur.carburation = carburation;
+        moteur.nbCylindres = nbCylindres;
+        this.moteur = moteur;
+    }
+
     // Ajout d'une méthode
     // On utilise void pour faire comprendre à Java que notre méthode ne retourne rien (donc vide)
-    void klaxonner() {
+    // On peut aussi qualifier une méthode de "static", cad que la méthode ne dépend pas des spécificités de l'objet en particulier
+    static void klaxonner() {
         System.out.println("Tutut !!!");
     }
 
@@ -32,7 +87,7 @@ public class Voiture {
     }
 
     // Je souhaite passer en paramètre une chaîne de caractère et un int
-    /* void tourner(boolean droite, int angle) {
+    static void tourner(boolean droite, int angle) {
         String droiteOuGauche = null;
 
         if (droite) {
@@ -41,7 +96,7 @@ public class Voiture {
             droiteOuGauche = "gauche";
         }
         System.out.println("La voiture va tourner à " + droiteOuGauche + " d'un angle de " + angle + " degrés");
-    } */
+    }
     // Au lieu de construire ma string dans la fonction, je la passe directement en tant que paramètre
     void tourner(String droiteOuGauche, int angle) {
         System.out.println("La voiture va tourner à " + droiteOuGauche + " d'un angle de " + angle + " degrés");
@@ -73,5 +128,7 @@ public class Voiture {
 
         return villeDeDestination;  // On n'oublie pas de déclarer le type de ce que l'on retourne avant la méthode, donc ici l'objet Ville
     }
+
+
 
 }

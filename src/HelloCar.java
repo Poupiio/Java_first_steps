@@ -5,7 +5,7 @@ public class HelloCar {
             L'objet nouvellement créé sera affecté à une variable.
             Ici, le type sera Voiture, mais contrairement à une variable classique, Voiture va contenir la référence à cet objet.
         */
-        Voiture voitureDeMichel = new Voiture();
+        Voiture voitureDeMichel = new Voiture("Verte");
         // La référence sera donc stockée dans la variable "voitureDeMichel"
 
         // On peut modifier les propriétés de la voiture :
@@ -33,8 +33,9 @@ public class HelloCar {
 
 
         // Je crée un nouvel objet de type Voiture
-        Voiture voitureDeJerome = new Voiture();
-        voitureDeJerome.nbPortes = 5;
+        Voiture voitureDeJerome = new Voiture("Rouge", 5);
+        // J'ai passé en paramètre le constructeur avec le nombre de portes donc je n'ai plus besoin de définir le nombre de portes ici
+        // voitureDeJerome.nbPortes = 5;
 
         // Je veux comparer voitureDeMichel et voitureDeJerome avec l'opérateur ==
         boolean egauxOuNon = voitureDeMichel == voitureDeJerome;
@@ -74,5 +75,17 @@ public class HelloCar {
         ville.nom = "Auckland";
         Ville destination = voitureDeMichel.transporter(passager, ville);
         System.out.println("Le passager est arrivé dans la ville de " + destination.nom);
+        System.out.println("La voiture de Michel a " + voitureDeMichel.nbRoues + " roues");
+        System.out.println("La voiture de Jérôme a " + voitureDeJerome.nbRoues + " roues");
+        // On pourrait également écrire ceci, sans variable :
+        System.out.println("Le nombre de roues d'une voiture en général est de " + Voiture.nbRoues);
+        // Je peux modifier la valeur de nbPortes sans la changer dans Voiture.java
+        Voiture.nbRoues = 5;
+        System.out.println("La voiture de Michel a " + voitureDeMichel.nbRoues + " roues");
+        System.out.println("La voiture de Jérôme a " + voitureDeJerome.nbRoues + " roues");
+        System.out.println("Le nombre de roues d'une voiture en général est de " + Voiture.nbRoues);
+
+        Voiture.klaxonner();
+        Voiture.tourner(true, 45);
     }
 }
