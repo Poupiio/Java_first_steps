@@ -5,6 +5,9 @@ public class Voiture {
     int rapportCourant;
     int vitesse;
 
+    // Ajout d'une nouvelle propriété de type Objet
+    Moteur moteur;
+
     // Ajout d'une méthode
     // On utilise void pour faire comprendre à Java que notre méthode ne retourne rien (donc vide)
     void klaxonner() {
@@ -59,4 +62,16 @@ public class Voiture {
         this.vitesse = this.vitesse + vitesse;
         return this.vitesse;
     }
+
+    // Impliquer un Objet dans un paramètre ou dans le return d'une méthode
+    Ville transporter(Passager passager, Ville villeDeDepart) {
+        System.out.println("Je transporte un passager qui s'appelle " + passager.prenom + " " + passager.nom);
+        System.out.println("Le passager est parti de la ville de " + villeDeDepart.nom);
+
+        Ville villeDeDestination = new Ville();
+        villeDeDestination.nom = "Wellington";
+
+        return villeDeDestination;  // On n'oublie pas de déclarer le type de ce que l'on retourne avant la méthode, donc ici l'objet Ville
+    }
+
 }

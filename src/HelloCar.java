@@ -11,7 +11,7 @@ public class HelloCar {
         // On peut modifier les propriétés de la voiture :
         voitureDeMichel.nbPortes = 3;
         voitureDeMichel.automatique = true;
-        voitureDeMichel.couleur = "Bleue";
+        voitureDeMichel.couleur = "Bleu";
         System.out.println(voitureDeMichel.couleur);
 
         // Jouer la méthode créée dans Voiture
@@ -34,6 +34,7 @@ public class HelloCar {
 
         // Je crée un nouvel objet de type Voiture
         Voiture voitureDeJerome = new Voiture();
+        voitureDeJerome.nbPortes = 5;
 
         // Je veux comparer voitureDeMichel et voitureDeJerome avec l'opérateur ==
         boolean egauxOuNon = voitureDeMichel == voitureDeJerome;
@@ -58,5 +59,20 @@ public class HelloCar {
 
         int nouvelleVitesseDeJerome = voitureDeJerome.accelerer(150);
         System.out.println("La nouvelle vitesse de Jérôme est " + nouvelleVitesseDeJerome + "km/h");
+
+        Moteur moteur = new Moteur();
+        moteur.carburation = "Diesel";
+        moteur.nbCylindres = 6;
+        voitureDeJerome.moteur = moteur;
+
+        System.out.println("Le nombre de cylindres de la voiture de Jérôme est : " + voitureDeJerome.moteur.nbCylindres);
+
+        Passager passager = new Passager();
+        Ville ville = new Ville();
+        passager.nom = "Dupont";
+        passager.prenom = "Patrick";
+        ville.nom = "Auckland";
+        Ville destination = voitureDeMichel.transporter(passager, ville);
+        System.out.println("Le passager est arrivé dans la ville de " + destination.nom);
     }
 }
